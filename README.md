@@ -1,7 +1,15 @@
 # GNNs and Generative Models for Drug Discovery
 
-These notes were made by Logan Mondal Bhamidipaty as part of a tutorial completed at Oxford (Michaelmas 2023) under Martin Buttenschoen.
+These brief 
+notes were made by Logan Mondal Bhamidipaty as part of a tutorial completed at Oxford (Michaelmas 2023) under Martin Buttenschoen.
 
+<p align="center">
+  <a>
+    <img src="images/reverse_diffusion_water.gif">
+  </a>
+  <br>
+  <em>Reverse diffusion of my [simple EDM](simple_edm.ipynb) purposely overfit on a water molecule.</em>
+</p>
 # Graph Neural Networks (GNNs)
 
 ## Basics
@@ -58,7 +66,7 @@ Following the reference above, we can divide GNN layers into three distinct flav
 
 <p align="center">
   <a href="https://towardsdatascience.com/understanding-diffusion-probabilistic-models-dpms-1940329d6048">
-    <img src="images/diffusion_distribution.png" width="400">
+    <img src="images/diffusion_distribution.png" width="600">
   </a>
   <br>
   <em>Image Source: [Understanding Diffusion Probabilistic Models (DPMs)](https://towardsdatascience.com/understanding-diffusion-probabilistic-models-dpms-1940329d6048)</em>
@@ -69,7 +77,7 @@ Following the reference above, we can divide GNN layers into three distinct flav
 The process of gradually and structurally deforming the original distribution is called "forward diffusion". An example of the forward process is explored [here](image_diffusion_exploration/forward_diffusion.ipynb).
 
 <p align="center">
-  <img src="images/rad_cam_noising.png", width="400">
+  <img src="images/rad_cam_noising.png", width="600">
 </p>
 
 In the special case, where we only take a single noising step we have a variational autoencoder (VAE) rather than a diffusion model.
@@ -85,7 +93,7 @@ In the special case, where we only take a single noising step we have a variatio
 
 In particular, the frequently used forward process is described as an isotropic Gaussian with a variance-preserving schedule with a mean near the previous random variable. Formally, we can derive $p$ and $q$ using [ELBO optimization](https://en.wikipedia.org/wiki/Evidence_lower_bound) so that:
 <p align="center">
-  <img src="images/vae_math.png", width="200">
+  <img src="images/vae_math.png", width="300">
 </p>
 
 ### Reparameterization Trick
@@ -97,4 +105,49 @@ $$ x = \mu + \sigma \odot \epsilon $$
 where $\epsilon$ is noise from the multivariate standard normal. In Luo's words, "arbitrary Guassian distributions can be interpreted as standard Gaussians (of which $\epsilon$ is a sample) that have their mean shifted from zero to the target mean $\mu$ by addition, and their variance stretched by the target variance $\sigma^2$."
 
 The trick also vastly simplifies the math of forward diffusion and (as we will discuss) enables the neural network to be reduced to a simple noise prediction machine. 
+
+## Reverse Process
+
+The reverse process is the process of gradually denoising a Gaussian variate to sample from the complex original distribution. Since the forward process is an extremely precise noising procedure, the reverse process is actually fairly simple.
+
+<p align="center">
+  <img src="images/denoising_math.png", width="300">
+</p>
+
+The mathematical details can be followed in [[2107.00630] Variational Diffusion Models](https://arxiv.org/abs/2107.00630). Following Kingma, we can interpret this procedure in three ways:
+<p align="center">
+  <img src="images/denoising_interpretations.png", width="400">
+</p>
+
+Again, the details will be relegated to the actual paper itself. Of interest, however, is the score function ($\nabla \log p(x)$) which is well-discussed in the Luo paper linked in the previous section on forward diffusion. 
+
+# Equivariant Diffusion Models
+
+_Reference: [[2203.17003] Equivariant Diffusion for Molecule Generation in 3D](https://arxiv.org/abs/2203.17003)_
+
+This section is brief because EDMs are explored in much greater depth [here](simple_edm.ipynb). This section is merely here to provide greater reference to the original paper and to showcase the water diffusion.
+
+## Equivariance
+
+<p align="center">
+  <a href="https://arxiv.org/pdf/2102.09844.pdf">
+    <img src="images/vae.png" width="150">
+  </a>
+  <br>
+  <em>Image Source: [[2102.09844] E(n) Equivariant Graph Neural Networks](https://arxiv.org/abs/2102.09844)</em>
+</p>
+
+## Optimization
+
+<p align="center">
+  <img src="images/alg1.png", width="400">
+</p>
+
+## Sampling
+
+<p align="center">
+  <img src="images/alg2.png", width="400">
+</p>
+
+Using our simple EDM, we can visualize the diffusion process on a molecule of water (see top of page).
 
