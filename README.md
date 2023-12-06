@@ -133,7 +133,7 @@ This section is brief because EDMs are explored in much greater depth [here](sim
 
 <p align="center">
   <a href="https://arxiv.org/pdf/2102.09844.pdf">
-    <img src="images/vae.png" width="150">
+    <img src="images/equivariance_def.png">
   </a>
 </p>
 
