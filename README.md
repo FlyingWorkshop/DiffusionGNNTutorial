@@ -5,7 +5,7 @@ notes were made by Logan Mondal Bhamidipaty as part of a tutorial completed at O
 
 <p align="center">
   <a>
-    <img src="images/reverse_diffusion_water.gif">
+    <img src="images/infinite_water_diffusion.gif">
   </a>
   <br>
   <em>Reverse diffusion of my [simple EDM](simple_edm.ipynb) purposely overfit on a water molecule.</em>
