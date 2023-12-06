@@ -8,8 +8,11 @@ notes were made by Logan Mondal Bhamidipaty as part of a tutorial completed at O
     <img src="images/infinite_water_diffusion.gif">
   </a>
   <br>
-  <em>Reverse diffusion of my [simple EDM](simple_edm.ipynb) purposely overfit on a water molecule.</em>
 </p>
+
+_Reverse diffusion of my [simple EDM](simple_edm.ipynb) purposely overfit on a water molecule._
+
+
 # Graph Neural Networks (GNNs)
 
 ## Basics
@@ -68,9 +71,9 @@ Following the reference above, we can divide GNN layers into three distinct flav
   <a href="https://towardsdatascience.com/understanding-diffusion-probabilistic-models-dpms-1940329d6048">
     <img src="images/diffusion_distribution.png" width="600">
   </a>
-  <br>
-  <em>Image Source: [Understanding Diffusion Probabilistic Models (DPMs)](https://towardsdatascience.com/understanding-diffusion-probabilistic-models-dpms-1940329d6048)</em>
 </p>
+
+_Image Source: [Understanding Diffusion Probabilistic Models (DPMs)](https://towardsdatascience.com/understanding-diffusion-probabilistic-models-dpms-1940329d6048)_
 
 ## Forward Diffusion
 
@@ -86,10 +89,9 @@ In the special case, where we only take a single noising step we have a variatio
   <a href="https://arxiv.org/pdf/2208.11970.pdf">
     <img src="images/vae.png" width="150">
   </a>
-  <br>
-  <em>Image Source: [[2208.11970] Understanding Diffusion Models: A Unified Perspective
-](https://arxiv.org/pdf/2208.11970.pdf)</em>
 </p>
+
+_Image Source: [[2208.11970] Understanding Diffusion Models: A Unified Perspective](https://arxiv.org/pdf/2208.11970.pdf)_
 
 In particular, the frequently used forward process is described as an isotropic Gaussian with a variance-preserving schedule with a mean near the previous random variable. Formally, we can derive $p$ and $q$ using [ELBO optimization](https://en.wikipedia.org/wiki/Evidence_lower_bound) so that:
 <p align="center">
@@ -133,9 +135,9 @@ This section is brief because EDMs are explored in much greater depth [here](sim
   <a href="https://arxiv.org/pdf/2102.09844.pdf">
     <img src="images/vae.png" width="150">
   </a>
-  <br>
-  <em>Image Source: [[2102.09844] E(n) Equivariant Graph Neural Networks](https://arxiv.org/abs/2102.09844)</em>
 </p>
+
+_Image Source: [[2102.09844] E(n) Equivariant Graph Neural Networks](https://arxiv.org/abs/2102.09844)_
 
 ## Optimization
 
