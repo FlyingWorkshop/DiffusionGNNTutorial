@@ -31,5 +31,5 @@ In this way, a latent representation of a graph is built up over time that gradu
 
 _Reference: [[2104.13478] Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges](https://arxiv.org/abs/2104.13478), Sec: 5.3 Graph Neural Networks_
 
-Following the reference above, we can divide GNN layers into three distinct flavors: (1) convolutional, (2) attentional, and (3) message-passing. Where each subsequent category is a generalization of the previous so that $convolution \subseteq attention \subseteq message-passing$. 
+Following the reference above, we can divide GNN layers into three distinct flavors: (1) convolutional, (2) attentional, and (3) message-passing. Where each subsequent category is a generalization of the previous so that $\text{convolution } \subseteq \text{ attention } \subseteq \text{ message-passing}$. 
 
